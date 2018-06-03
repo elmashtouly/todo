@@ -18,7 +18,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app){
-	app.get('/todo',function(req,res){
+	app.get('/',function(req,res){
 		ToDo.find({},function(err,data){
 			if (err) throw err;
 			res.render('todo',{todos:data});
@@ -26,7 +26,7 @@ module.exports = function(app){
 		
 	});
 
-	app.post('/todo',urlencodedParser,function(req,res){
+	app.post('/',urlencodedParser,function(req,res){
 		ToDo(req.body).save(function(err,data){
 			if(err) throw err;
 			res.json(data);
@@ -34,7 +34,7 @@ module.exports = function(app){
 		
 	});
 
-	app.delete('/todo/:item',function(req,res){
+	app.delete('/:item',function(req,res){
 		ToDo.find({item:req.params.item.replace(/\-/g," ")}).remove(function(err,data){
 			if (err) throw err;
 			res.json(data);
