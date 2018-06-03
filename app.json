@@ -1,0 +1,6 @@
+{
+  "name": "Mashtouly ToDo",
+  "description": "A sample Node.js app using Express 4",
+  "repository": "https://github.com/elmashtouly/todo",
+  "keywords": ["node", "express", "heroku"],
+}
